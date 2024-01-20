@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\Auth\AuthController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\AdminPagesController;
 use App\Http\Controllers\Admin\AdminSaveDataController;
+use App\Http\Controllers\Admin\AdminSettingController;
 
 // Admin Imports Ends Here...
 
@@ -68,6 +69,13 @@ Route::prefix('admin')->middleware(['admin_auth'])->group(function () {
     Route::post('/save-jeep-safari', [AdminSaveDataController::class, 'saveJeepSafari'])->name('admin.save-jeep-safari');
     Route::post('/jeep/title/delete', [AdminSaveDataController::class, 'deleteJeepSafariTitle'])->name('admin.jeep.title.delete');
     Route::post('/jeep/desc/delete', [AdminSaveDataController::class, 'deleteJeepSafariDesc'])->name('admin.jeep.desc.delete');
+
+
+
+    // Manage Setting
+    Route::get('/settings/general', [AdminSettingController::class, 'general'])->name('admin.settings.general');
+    Route::post('/settings/save-general', [AdminSettingController::class, 'saveGeneralSettings'])->name('admin.settings.save-general');
+
 
 });
 // Admin Routes Ends Here...

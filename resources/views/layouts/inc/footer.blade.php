@@ -6,7 +6,7 @@
 <div class="col-md-6 col-lg-4">
 <div class="footer-widget-box about-us">
 <a href="{{ url('/') }}" class="footer-logo">
-<img src="{{ asset('front_assets/img/logo/logo.png') }}" alt>
+<img src="{{ asset('storage/uploads/admin/settings/general/'.getWebsiteLogo()) }}" alt>
 </a>
 <p class="mb-3">
 We are many variations of passages available but the majority have suffered alteration

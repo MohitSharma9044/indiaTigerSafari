@@ -45,5 +45,19 @@
                 </li>
             </ul>
         </li>
+
+        <li class="nav-submenu">
+            <a class="nav-submenu-title">
+                <i class="feather icon-box"></i>
+                <span>Manage Settings</span>
+                <i class="nav-submenu-arrow"></i>
+            </a>
+            <ul class="nav-menu menu-collapse">
+                <li class="nav-menu-item">
+                    <a href="{{ url('admin/settings/general') }}">General</a>
+                </li>
+                
+            </ul>
+        </li>
     </ul>
 </div>

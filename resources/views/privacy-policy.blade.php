@@ -3,7 +3,7 @@
 
 @section('content')
 
-<div class="site-breadcrumb" style="background: url({{ asset('front_assets/img/breadcrumb/breadcrumb-bg.jpg') }})">
+<div class="site-breadcrumb" style="background: url({{ $privacy->banner_image ? asset('storage/uploads/admin/policy/'.$privacy->banner_image) : asset('front_assets/img/breadcrumb/breadcrumb-bg.jpg') }})">
 <div class="container">
 <h2 class="breadcrumb-title">Privacy Policy</h2>
 <ul class="breadcrumb-menu">
@@ -18,48 +18,19 @@
 <div class="container">
 <div class="row">
 <div class="col-lg-8">
+@if($privacy)
+@foreach($privacy->titles as $title)
 <div class="terms-content">
-<h3>Privacy Policy</h3>
-<p>
-Sed ac sollicitudin ipsum. Vivamus vulputate, enim sit amet aliquet lacinia, ex mauris
-aliquam elit, vel pharetra augue arcu ultricies magna. Suspendisse justo erat, dignissim
-ut imperdiet ut, convallis vitae urna. Vivamus tincidunt lacinia metus sed suscipit.
-Phasellus luctus rhoncus mauris ut euismod. Aliquam elementum malesuada erat, vitae
-bibendum ex rutrum eget. Mauris sed nunc mauris. Curabitur semper sed justo a
-pellentesque. In hac habitasse platea dictumst. Mauris semper volutpat iaculis.
-Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;
-Curabitur consectetur dignissim nulla id ornare. Praesent placerat dolor vitae tellus
-lacinia, a malesuada est sodales. Praesent at consectetur sem, sed scelerisque arcu.
-Maecenas malesuada lorem id sagittis scelerisque. In hac habitasse platea dictumst.
-</p>
+<h3>{{$title->privacy_title}}</h3>
+@if($title->descriptions)
+@foreach($title->descriptions as $desc)
+<p>{{$desc->privacy_description}}</p>
+@endforeach
+@endif
 </div>
-<div class="terms-content">
-<h3>Refund Policy</h3>
-<p>
-Pellentesque sit amet nulla facilisis, lobortis ex at, consequat diam. Pellentesque sed
-dui lorem. Aliquam vel euismod nunc. Nulla facilisi. Donec consectetur faucibus rutrum.
-Pellentesque ac ultricies sapien, ac iaculis erat. Vivamus posuere eget nulla sit amet
-vehicula. Donec finibus maximus eros, at tincidunt ipsum vestibulum ac. Integer vel
-metus vehicula, consequat velit a, eleifend mi. Curabitur erat mauris, luctus non dictum
-vel, fringilla dignissim quam. Phasellus eleifend porta fermentum. Pellentesque posuere
-massa vitae odio pulvinar feugiat. Fusce a risus sodales, maximus sapien sit amet,
-pharetra ipsum. Vivamus varius eros ac sapien pulvinar, nec tincidunt dui bibendum.
-Proin consectetur nibh tortor, nec vulputate ex posuere eget.
-</p>
-</div>
-<div class="terms-content">
-<h3>Disclaimer</h3>
-<p>
-Donec facilisis consequat nisi. Vivamus euismod at ipsum a gravida. Quisque vitae augue
-maximus elit iaculis tincidunt. Quisque dapibus dui non justo iaculis volutpat.
-Phasellus vulputate tempus lorem vitae vehicula. Maecenas interdum venenatis ante,
-scelerisque porta nibh mollis vitae. Curabitur in erat porttitor, imperdiet lectus non,
-porttitor odio. Donec efficitur efficitur dapibus. Aenean sit amet tortor id lorem
-ultricies rhoncus. Etiam ornare eros eu commodo vehicula. Curabitur vel enim eget velit
-tincidunt viverra eu in risus. Aliquam suscipit tellus eu fermentum facilisis.
-Pellentesque volutpat posuere ligula. Fusce et consequat mi.
-</p>
-</div>
+@endforeach
+@endif
+
 </div>
 <div class="col-lg-4">
     <aside class="sidebar">

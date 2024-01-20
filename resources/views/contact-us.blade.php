@@ -20,9 +20,8 @@
 <div class="col-lg-8 align-self-center">
 <div class="contact-form">
 <div class="contact-form-header">
-<h2>Get In Touch</h2>
-<p>It is a long established fact that a reader will be distracted by the readable
-content of a page randomised words which don't look even slightly when looking at its layout. </p>
+<h2>{{$contact->main_heading}}</h2>
+<p>{{$contact->main_content}}</p>
 </div>
 <form method="POST" action="" id="contact-form">
 <div class="row">
@@ -69,8 +68,8 @@ Message <i class="far fa-paper-plane"></i></button>
 <i class="fal fa-map-marker-alt"></i>
 </div>
 <div class="contact-info-content">
-<h5>Office Address</h5>
-<p>Ground Floor Shop K -1- 1316 Gali No 16, Sangam Vihar, New Delhi, 110080</p>
+<h5>{{$contact->address}}</h5>
+<p>{{$contact->address_content}}</p>
 </div>
 </div>
 <div class="contact-info">
@@ -78,8 +77,8 @@ Message <i class="far fa-paper-plane"></i></button>
 <i class="fal fa-phone"></i>
 </div>
 <div class="contact-info-content">
-<h5>Call Us</h5>
-<p>+91 8802519000</p>
+<h5>{{$contact->call_title}}</h5>
+<p>{{$contact->call_number}}</p>
 </div>
 </div>
 <div class="contact-info">
@@ -87,8 +86,8 @@ Message <i class="far fa-paper-plane"></i></button>
 <i class="fal fa-envelope"></i>
 </div>
 <div class="contact-info-content">
-<h5>Email Us</h5>
-<p><a href="mailto:info@indiatigersafari.in">info@indiatigersafari.in</a></p>
+<h5>{{$contact->email_title}}</h5>
+<p><a href="mailto:{{$contact->email_address}}">{{$contact->email_address}}</a></p>
 </div>
 </div>
 </div>

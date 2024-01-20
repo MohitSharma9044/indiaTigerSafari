@@ -3,7 +3,7 @@
 
 @section('content')
 
-<div class="site-breadcrumb" style="background: url({{ asset('front_assets/img/breadcrumb/breadcrumb-bg-2.jpg') }})">
+<div class="site-breadcrumb" style="background: url({{ $pay_now->banner_image ? asset('storage/uploads/admin/pay/'.$pay_now->banner_image) : asset('front_assets/img/breadcrumb/breadcrumb-bg-2.jpg') }})">
 <div class="container">
 <h2 class="breadcrumb-title">Pay Now</h2>
 <ul class="breadcrumb-menu">
@@ -185,27 +185,27 @@
             <tbody>
                 <tr>
                     <th>BANK NAME:</th>
-                    <td>Kotak Mahindra Bank</td>
+                    <td>{{$pay_now->bank_name}}</td>
                 </tr>
                 <tr>
                     <th>ACCOUNT NO.:</th>
-                    <td>97687XXXXX</td>
+                    <td>{{$pay_now->account_no}}</td>
                 </tr>
                 <tr>
                     <th>IFSC CODE:</th>
-                    <td>97687XXXXX</td>
+                    <td>{{$pay_now->ifsc_code}}</td>
                 </tr>
                 <tr>
                     <th>BRANCH:</th>
-                    <td>NOIDA</td>
+                    <td>{{$pay_now->bank_branch}}</td>
                 </tr>
                 <tr>
                     <th>GSTIN:</th>
-                    <td>3477XXXXXXX</td>
+                    <td>{{$pay_now->gstin}}</td>
                 </tr>
                 <tr>
                     <th>PAN:</th>
-                    <td>3477XXXXXXX</td>
+                    <td>{{$pay_now->pan}}</td>
                 </tr>
             </tbody>
         </table>
