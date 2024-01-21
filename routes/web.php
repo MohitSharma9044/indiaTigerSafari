@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\AdminPagesController;
 use App\Http\Controllers\Admin\AdminSaveDataController;
 use App\Http\Controllers\Admin\AdminSettingController;
+use App\Http\Controllers\Admin\AdminManageTourController;
 
 // Admin Imports Ends Here...
 
@@ -76,6 +77,10 @@ Route::prefix('admin')->middleware(['admin_auth'])->group(function () {
     Route::get('/settings/general', [AdminSettingController::class, 'general'])->name('admin.settings.general');
     Route::post('/settings/save-general', [AdminSettingController::class, 'saveGeneralSettings'])->name('admin.settings.save-general');
 
+
+
+    // Manage Tours
+    Route::get('/tours/create', [AdminManageTourController::class, 'create'])->name('admin.tours.create');
 
 });
 // Admin Routes Ends Here...

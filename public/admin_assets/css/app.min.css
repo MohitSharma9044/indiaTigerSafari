@@ -25258,3 +25258,31 @@ pre[class*="language-"] {
     border-radius: 10px;
     margin-bottom: 15px;
 }
+
+h4{
+    margin: 15px 0;
+}
+
+.slidersSectionBox,.overviewSectionBox, .overviewTabsSectionBox {
+    padding: 10px 20px;
+    border: 1px dashed;
+}
+.overviewTabsSectionBox{
+    margin-bottom: 15px;
+    padding: 20px;
+}
+
+.overviewTabsSectionBox .row, .overviewSectionBox .row, .slidersSectionBox .row{
+    margin-bottom: 10px;
+    box-shadow: 0 0 10px #0000004d;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.slidersSectionBox .row , .overviewSectionBox .row{
+    margin-bottom: 10px;
+}
+.overviewTabsDescBox .row, .overviewDescriptionBox1 .row, .overviewDescriptionBox2 .row{
+    box-shadow: none;
+    margin-bottom: 10px;
+}
