@@ -9,7 +9,7 @@
     <div class="alert alert-success">{{ session('message') }}</div>
     @endif
     <div class="card">
-        <form action="{{ route('admin.save-pay-now') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('admin.tours.save') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
                 <label for="tour_name" class="form-label">Tour Name</label>
@@ -170,16 +170,16 @@
                         <label for="tour_tabs_0" class="form-label d-block">&nbsp;&nbsp;</label>
                         <button type="button" class="btn btn-primary btn-sm" onclick="addTabs();">Add Tabs</button>
                     </div>
-                    <div class="overviewTabsDescBox">
-                        <div class="row" id="overviewTabsDesc_0">
+                    <div class="overviewTabsDescBox_0">
+                        <div class="row row2" id="overviewTabsDesc_0_0">
                             <div class="col-md-10">
-                                <label for="tour_tabs_desc_0" class="form-label">Overview Description</label>
-                                <textarea class="form-control @error('tour_tabs_desc.0')is-invalid @enderror" id="tour_tabs_desc_0" name="tour_tabs_desc[0][]" placeholder="Tabs Description" rows="2"></textarea>
+                                <label for="tour_tabs_desc_0_0" class="form-label">Overview Description</label>
+                                <textarea class="form-control @error('tour_tabs_desc.0')is-invalid @enderror" id="tour_tabs_desc_0_0" name="tour_tabs_desc[0][]" placeholder="Tabs Description" rows="2"></textarea>
                                 @error('tour_tabs_desc.0') <span class="invalid-feedback">{{ $message }}</span> @enderror
                             </div>
                             <div class="col-md-2">
                                 <label for="tour_tabs_action_0" class="form-label d-block">&nbsp;&nbsp;</label>
-                                <button type="button" class="btn btn-primary btn-sm" onclick="addTabsDesc('0');">Add Tabs Desc</button>
+                                <button type="button" class="btn btn-primary btn-sm" onclick="addTabsDesc(0);">Add Tabs Desc</button>
                             </div>
                         </div>
                     </div>
@@ -230,6 +230,117 @@
         $('#sliderItem_'+slider).remove();
         slider--;
     }
+
+    let desc1 = 0;
+    function addOverviewDesc1()
+    {
+        desc1++;
+        let html = `<div class="row" id="overviewDescItem1_${desc1}">
+                        <div class="col-md-10">
+                            <textarea class="form-control @error('tour_overview_description1.0')is-invalid @enderror" name="tour_overview_description1[]" placeholder="Overview Description 1" rows="2"></textarea>
+                            @error('tour_overview_description1.0') <span class="invalid-feedback">{{ $message }}</span> @enderror
+                        </div>
+                        <div class="col-md-2">
+                        <label for="tour_overview_description1" class="form-label d-block">&nbsp;&nbsp;</label>
+                        <button type="button" class="btn btn-danger btn-sm" onclick="removeDesc1(${desc1});">Remove</button>
+                        </div>
+                    </div>`;
+        $('.overviewDescriptionBox1').append(html);
+    }
+    
+    function removeDesc1(desc1)
+    {
+        $('#overviewDescItem1_'+desc1).remove();
+        desc1--;
+    }
+    let desc2 = 0;
+    function addOverviewDesc2()
+    {
+        desc2++;
+        let html = `<div class="row" id="overviewDescItem2_${desc2}">
+                        <div class="col-md-10">
+                            <textarea class="form-control @error('tour_overview_description2.0')is-invalid @enderror" name="tour_overview_description2[]" placeholder="Overview Description 2" rows="2"></textarea>
+                            @error('tour_overview_description2.0') <span class="invalid-feedback">{{ $message }}</span> @enderror
+                        </div>
+                        <div class="col-md-2">
+                        <label for="tour_overview_description1" class="form-label d-block">&nbsp;&nbsp;</label>
+                        <button type="button" class="btn btn-danger btn-sm" onclick="removeDesc2(${desc2});">Remove</button>
+                        </div>
+                    </div>`;
+        $('.overviewDescriptionBox2').append(html);
+    }
+
+    function removeDesc2(desc2)
+    {
+        $('#overviewDescItem2_'+desc2).remove();
+        desc2--;
+    }
+
+    let tabs = 0;
+    function addTabs()
+    {
+        tabs++;
+        let html = `<div class="row" id="overviewTabsItem_${tabs}">
+                    <div class="col-md-10">
+                        <label for="tour_tabs_title_${tabs}" class="form-label">Tabs Title</label>
+                        <input type="text" class="form-control @error('tour_tabs_title.0')is-invalid @enderror" id="tour_tabs_title_${tabs}" name="tour_tabs_title[]" placeholder="Tabs Title">
+                        @error('tour_tabs_title.0') <span class="invalid-feedback">{{ $message }}</span> @enderror
+                    </div>
+                    <div class="col-md-2">
+                        <label for="tour_tabs_0" class="form-label d-block">&nbsp;&nbsp;</label>
+                        <button type="button" class="btn btn-danger btn-sm" onclick="removeTabs(${tabs});">Remove</button>
+                    </div>
+                    <div class="overviewTabsDescBox_${tabs}">
+                        <div class="row row2" id="overviewTabsDesc_${tabs}_0">
+                            <div class="col-md-10">
+                                <label for="tour_tabs_desc_${tabs}_0" class="form-label">Overview Description</label>
+                                <textarea class="form-control @error('tour_tabs_desc.0')is-invalid @enderror" id="tour_tabs_desc_${tabs}_0" name="tour_tabs_desc[${tabs}][]" placeholder="Tabs Description" rows="2"></textarea>
+                                @error('tour_tabs_desc.0') <span class="invalid-feedback">{{ $message }}</span> @enderror
+                            </div>
+                            <div class="col-md-2">
+                                <label for="tour_tabs_action_0" class="form-label d-block">&nbsp;&nbsp;</label>
+                                <button type="button" class="btn btn-primary btn-sm" onclick="addTabsDesc(${tabs});">Add Tabs Desc</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>`;
+
+    $('.overviewTabsSectionBox').append(html);
+    }
+
+    function removeTabs(tabs)
+    {
+        $('#overviewTabsItem_'+tabs).remove();
+        tabs--;
+    }
+
+    let tabs_desc = 0;
+    function addTabsDesc(tabs)
+    {
+        tabs_desc++;
+        let html = `<div class="row row2" id="overviewTabsDesc_${tabs}_${tabs_desc}">
+                            <div class="col-md-10">
+                                <textarea class="form-control @error('tour_tabs_desc.0')is-invalid @enderror" name="tour_tabs_desc[${tabs}][]" placeholder="Tabs Description" rows="2"></textarea>
+                                @error('tour_tabs_desc.0') <span class="invalid-feedback">{{ $message }}</span> @enderror
+                            </div>
+                            <div class="col-md-2">
+                                <label for="tour_tabs_action_0" class="form-label d-block">&nbsp;&nbsp;</label>
+                                <button type="button" class="btn btn-danger btn-sm" onclick="removeTabsDesc(${tabs}, ${tabs_desc});">Remove Desc</button>
+                            </div>
+                        </div>`;
+
+        $('.overviewTabsDescBox_'+tabs).append(html);
+    }
+
+    function removeTabsDesc(tabs, tabs_desc)
+    {
+        $('#overviewTabsDesc_'+tabs+'_'+tabs_desc).remove();
+        tabs_desc--;
+    }
+    
+    
+
 </script>
 
 @endsection

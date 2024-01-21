@@ -81,6 +81,7 @@ Route::prefix('admin')->middleware(['admin_auth'])->group(function () {
 
     // Manage Tours
     Route::get('/tours/create', [AdminManageTourController::class, 'create'])->name('admin.tours.create');
+    Route::post('/tours/save', [AdminManageTourController::class, 'saveTours'])->name('admin.tours.save');
 
 });
 // Admin Routes Ends Here...

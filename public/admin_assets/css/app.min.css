@@ -25282,7 +25282,7 @@ h4{
 .slidersSectionBox .row , .overviewSectionBox .row{
     margin-bottom: 10px;
 }
-.overviewTabsDescBox .row, .overviewDescriptionBox1 .row, .overviewDescriptionBox2 .row{
+.overviewTabsSectionBox .row.row2, .overviewDescriptionBox1 .row, .overviewDescriptionBox2 .row{
     box-shadow: none;
     margin-bottom: 10px;
 }
